@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: bc1690978b0d7944a8156b0df44658be
+guid: ca029fe02795bbc47b05e03fc0639496
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1370150288747598966
-    second: Building_0
+      213: 2470317329428885997
+    second: BulletExplosion_0
+  - first:
+      213: -3555224849318403442
+    second: BulletExplosion_1
+  - first:
+      213: -6616508046881613507
+    second: BulletExplosion_2
+  - first:
+      213: -483728293775278666
+    second: BulletExplosion_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Building_0
+      name: BulletExplosion_0
       rect:
         serializedVersion: 2
-        x: 39
+        x: 0
         y: 0
-        width: 162
-        height: 131
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +137,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a8bec4e529f3cfce0800000000000000
-      internalID: -1370150288747598966
+      spriteID: de1b917d584584220800000000000000
+      internalID: 2470317329428885997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletExplosion_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e822cbff5dd49aec0800000000000000
+      internalID: -3555224849318403442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletExplosion_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d399b14bcf07d24a0800000000000000
+      internalID: -6616508046881613507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletExplosion_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bdf7b10ea37949f0800000000000000
+      internalID: -483728293775278666
       vertices: []
       indices: 
       edges: []
@@ -138,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0621945a7ad43d6409f9f7c078b7ce2e
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Building_0: -1370150288747598966
+      BulletExplosion_0: 2470317329428885997
+      BulletExplosion_1: -3555224849318403442
+      BulletExplosion_2: -6616508046881613507
+      BulletExplosion_3: -483728293775278666
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
