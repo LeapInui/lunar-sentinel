@@ -1,9 +1,9 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class MeteorController : MonoBehaviour
 {
     [SerializeField] private float speed = 2f;
+    [SerializeField] private GameObject meteorExplosion;
     GameObject[] structures;
 
     Transform target;
@@ -23,5 +23,15 @@ public class MeteorController : MonoBehaviour
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
         transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.tag == "Structures")
+        {
+            Instantiate(meteorExplosion, collider.transform.position, Quaternion.identity);
+            Destroy(gameObject);
+            Destroy(collider.gameObject);
+        }
     }
 }
