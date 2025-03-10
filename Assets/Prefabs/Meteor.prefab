@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  bulletExplosion: {fileID: 4783033501616144525, guid: f862fc1f5de310b439d510c6fb7b5d1f, type: 3}
   meteorExplosion: {fileID: 7167146714011602999, guid: 49970c0b6561e594d80888f31eee574b, type: 3}
 --- !u!58 &6314408287385106025
 CircleCollider2D:

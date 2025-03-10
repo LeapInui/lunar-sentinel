@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerBulletController : MonoBehaviour
 {
-
     private Vector2 target;
     [SerializeField] private GameObject bulletExplosion;
     [SerializeField] private float speed = 5f;

@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 5a102df90a63a764ca2907673360b0ba
+guid: 7a835ce5c63a5414ebbaaefa62529e2a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6142374563283994760
-    second: crosshair_0
+      213: -857270020218531044
+    second: Cursor 1_0
   - first:
-      213: -2565141449147483526
-    second: crosshair_1
+      213: -8455972242612403161
+    second: Cursor 1_1
   - first:
-      213: -5829914293868266466
-    second: crosshair_2
+      213: 6494991218663545492
+    second: Cursor 1_2
   - first:
-      213: -2476541911245631371
-    second: crosshair_3
+      213: -6112173431101609114
+    second: Cursor 1_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: crosshair_0
+      name: Cursor 1_0
       rect:
         serializedVersion: 2
         x: 23
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 877ff0ed0e6e1caa0800000000000000
-      internalID: -6142374563283994760
+      spriteID: c135848657d5a14f0800000000000000
+      internalID: -857270020218531044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crosshair_1
+      name: Cursor 1_1
       rect:
         serializedVersion: 2
         x: 3
@@ -159,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7afee45179c66cd0800000000000000
-      internalID: -2565141449147483526
+      spriteID: 72446880c0a56aa80800000000000000
+      internalID: -8455972242612403161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crosshair_2
+      name: Cursor 1_2
       rect:
         serializedVersion: 2
         x: 31
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e1c720386dbf71fa0800000000000000
-      internalID: -5829914293868266466
+      spriteID: 49ad8b7f918d22a50800000000000000
+      internalID: 6494991218663545492
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crosshair_3
+      name: Cursor 1_3
       rect:
         serializedVersion: 2
         x: 23
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 57056d4c04e81add0800000000000000
-      internalID: -2476541911245631371
+      spriteID: 66bab99e5a23d2ba0800000000000000
+      internalID: -6112173431101609114
       vertices: []
       indices: 
       edges: []

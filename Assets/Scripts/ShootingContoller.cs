@@ -25,6 +25,20 @@ public class ShootingContoller : MonoBehaviour
             selectedRobot = rightRobot;
         }
 
+        if (selectedRobot == null)
+        {
+            if (selectedGun == leftGun)
+            {
+                selectedGun = rightGun;
+                selectedRobot = rightRobot;
+            }
+            else
+            {
+                selectedGun = leftGun;
+                selectedRobot = leftRobot;
+            }
+        }
+
         Vector2 gunPos = selectedGun.transform.position;
         Vector2 direction = (targetPos - gunPos).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
