@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Structures
+  - Explosions
   layers:
   - Default
   - TransparentFX
