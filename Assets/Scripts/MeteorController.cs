@@ -37,7 +37,6 @@ public class MeteorController : MonoBehaviour
         {
             Instantiate(bulletExplosion, collider.transform.position, Quaternion.identity);
             Destroy(gameObject);
-            Destroy(collider.gameObject);
         }
     }
 }
