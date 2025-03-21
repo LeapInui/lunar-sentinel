@@ -13,16 +13,13 @@ public class MeteorSpawner : MonoBehaviour
 
     float valueY;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         minX = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).x;
         maxX = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0)).x;
 
         float randomX = Random.Range(minX, maxX);
         valueY = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;
-
-        StartCoroutine(SpawnMeteor());
     }
 
     // Update is called once per frame

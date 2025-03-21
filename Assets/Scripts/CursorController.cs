@@ -27,7 +27,7 @@ public class CursorController : MonoBehaviour
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             shootingContoller.Fire(mousePos);
             gameController.ammoCount--;
-            gameController.UpdateAmmoCount();
+            gameController.UpdateAmmoCountText();
         }
     }
 }

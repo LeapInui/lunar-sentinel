@@ -4,39 +4,31 @@ using UnityEngine;
 public class ShootingContoller : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private GunController leftGun;
-    [SerializeField] private GunController rightGun;
-    [SerializeField] private RobotController leftRobot;
-    [SerializeField] private RobotController rightRobot;
+    [SerializeField] private GunController[] guns;
+    [SerializeField] private RobotController[] robots;
 
     public void Fire(Vector2 targetPos)
     {
-        GunController selectedGun;
-        RobotController selectedRobot;
+        int index;
 
         if (targetPos.x < 0)
         {
-            selectedGun = leftGun;
-            selectedRobot = leftRobot;
+            index = 0;
         }
         else
         {
-            selectedGun = rightGun;
-            selectedRobot = rightRobot;
+            index = 1;
         }
 
+        GunController selectedGun = guns[index];
+        RobotController selectedRobot = robots[index];
+
+        // If the selected robot is null, switch to the other gun and robot
         if (selectedRobot == null)
         {
-            if (selectedGun == leftGun)
-            {
-                selectedGun = rightGun;
-                selectedRobot = rightRobot;
-            }
-            else
-            {
-                selectedGun = leftGun;
-                selectedRobot = leftRobot;
-            }
+            index = 1 - index; // Flip index
+            selectedGun = guns[index];
+            selectedRobot = robots[index];
         }
 
         Vector2 gunPos = selectedGun.transform.position;

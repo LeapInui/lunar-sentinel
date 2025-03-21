@@ -8,6 +8,7 @@ public class MeteorController : MonoBehaviour
     GameObject[] structures;
 
     Vector3 target;
+    private bool isDestroyed = false; // Prevents multiple scoring
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,15 +27,25 @@ public class MeteorController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
+    // When the meteor collides
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        // Prevent multiple hits
+        if (isDestroyed) return; 
+
+        // Buildings + robots
         if (collider.tag == "Structures")
         {
+            FindFirstObjectByType<GameController>().MeteorDestroyed();
             Instantiate(meteorExplosion, collider.transform.position, Quaternion.identity);
             Destroy(gameObject);
             Destroy(collider.gameObject);
-        } else if (collider.tag == "Explosions")
+        } 
+        // The bullet explosions fired by the player
+        else if (collider.tag == "Explosions")
         {
+            isDestroyed = true;
+            FindFirstObjectByType<GameController>().UpdateScorePoints();
             Instantiate(bulletExplosion, collider.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
