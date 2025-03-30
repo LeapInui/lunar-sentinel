@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour
 
     public int score = 0;
     public int level = 1;
+    public float meteorSpeed = 2f;
+    [SerializeField] private float meteorSpeedMultiplier = .1f;
     public int ammoCount = 30;
     private int totalMeteorCount = 10;
     private int meteorsLeftCount = 0;
@@ -71,7 +73,6 @@ public class GameController : MonoBehaviour
     public void UpdateScorePoints()
     {
         score += meteorDestroyPoints;
-        MeteorDestroyed();
         UpdateScoreText();
     }
 
@@ -123,6 +124,9 @@ public class GameController : MonoBehaviour
         yield return StartCoroutine(Countdown());
         roundEndPanel.SetActive(false);
         isRoundOver = false;
+
+        ammoCount = 30;
+        meteorSpeed *= 1f + meteorSpeedMultiplier;
 
         StartRound();
         UpdateLevelText();
