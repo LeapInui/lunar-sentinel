@@ -3,12 +3,12 @@ using UnityEngine;
 public class RobotController : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private GameController gameController;
     [SerializeField] private RobotLivesController livesUi;
 
     private int maxLives = 2;
     private int currentLives;
     private bool isUpdating = false; // Flag to check update status
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +27,7 @@ public class RobotController : MonoBehaviour
 
         if (currentLives <= 0)
         {
+            gameController.robotCounter--;
             Destroy(gameObject);
         }
 

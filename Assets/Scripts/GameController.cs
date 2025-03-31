@@ -6,12 +6,16 @@ using System.Threading;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject roundEndPanel;
+    [SerializeField] private GameObject gameOverPanel;
     MeteorSpawner meteorSpawner;
 
     public int score = 0;
     public int level = 1;
+
     public float meteorSpeed = 2f;
-    [SerializeField] private float meteorSpeedMultiplier = .1f;
+    [SerializeField] private float meteorSpeedMultiplier = 0.1f;
+
+    public int robotCounter;
     public int ammoCount = 30;
     private int totalMeteorCount = 10;
     private int meteorsLeftCount = 0;
@@ -30,12 +34,16 @@ public class GameController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI totalScoreText;
     [SerializeField] private TextMeshProUGUI countdownText;
 
+    [SerializeField] private TextMeshProUGUI endScoreText;
+
     private bool isRoundOver = false;
+    public bool gameOver = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        meteorSpawner = GameObject.FindFirstObjectByType<MeteorSpawner>();
+        meteorSpawner = FindFirstObjectByType<MeteorSpawner>();
+        robotCounter = FindObjectsByType<RobotController>(FindObjectsSortMode.None).Length;
 
         UpdateScoreText();
         UpdateLevelText();
@@ -47,10 +55,15 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (meteorsLeftCount <= 0 && !isRoundOver)
+        if (meteorsLeftCount <= 0 && !isRoundOver && !gameOver)
         {
             isRoundOver = true;
             StartCoroutine(EndRound());
+        }
+
+        if (robotCounter <= 0) {
+            gameOver = true;
+            StartCoroutine(GameOver());
         }
     }
 
@@ -104,7 +117,7 @@ public class GameController : MonoBehaviour
 
     public IEnumerator EndRound()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(0.5f);
         roundEndPanel.SetActive(true);
 
         int ammoRemainingScore = ammoCount * ammoRemainingBonus;
@@ -127,9 +140,16 @@ public class GameController : MonoBehaviour
 
         ammoCount = 30;
         meteorSpeed *= 1f + meteorSpeedMultiplier;
+        level++;
 
         StartRound();
         UpdateLevelText();
         UpdateAmmoCountText();
+    }
+
+    public IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(0.5f);
+        gameOverPanel.SetActive(true);
     }
 }

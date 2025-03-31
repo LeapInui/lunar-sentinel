@@ -26,6 +26,12 @@ public class MeteorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameController.gameOver)
+        {
+            Instantiate(meteorExplosion, transform.position, Quaternion.identity);
+            DestroyMeteor();
+        }
+
         Vector2 direction = (target - transform.position).normalized;
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
@@ -49,7 +55,7 @@ public class MeteorController : MonoBehaviour
         // Buildings + robots
         if (collider.tag == "Structures")
         {
-            Vector3 explosionPosition = collider.transform.position + new Vector3(0, 0, -0.5f);
+            Vector3 explosionPosition = collider.bounds.center + new Vector3(0, 0, -0.6f);
             Instantiate(meteorExplosion, explosionPosition, Quaternion.identity);
             DestroyMeteor();
 
