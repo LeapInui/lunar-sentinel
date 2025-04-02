@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using System.Threading;
 
 public class GameController : MonoBehaviour
 {
@@ -55,15 +54,15 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (robotCounter <= 0) {
+            gameOver = true;
+            StartCoroutine(GameOver());
+        }
+
         if (meteorsLeftCount <= 0 && !isRoundOver && !gameOver)
         {
             isRoundOver = true;
             StartCoroutine(EndRound());
-        }
-
-        if (robotCounter <= 0) {
-            gameOver = true;
-            StartCoroutine(GameOver());
         }
     }
 

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class CursorController : MonoBehaviour
@@ -22,7 +21,7 @@ public class CursorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && gameController.ammoCount > 0)
+        if (Input.GetMouseButtonDown(0) && gameController.ammoCount > 0 && !gameController.gameOver)
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             shootingContoller.Fire(mousePos);
