@@ -17,7 +17,12 @@ public class MeteorController : MonoBehaviour
     {
         gameController = FindFirstObjectByType<GameController>();
         structures = GameObject.FindGameObjectsWithTag("Structures");
-        target = structures[Random.Range(0, structures.Length)].transform.position;
+
+        // Prevents index errors
+        if (!gameController.gameOver)
+        {
+            target = structures[Random.Range(0, structures.Length)].transform.position;
+        }
 
         speed = gameController.meteorSpeed;
     }

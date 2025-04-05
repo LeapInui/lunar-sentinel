@@ -4,5 +4,7 @@ PlayerBullets - https://bdragon1727.itch.io/free-effect-and-bullet-16x16
 Explosions + Meteors - https://bdragon1727.itch.io/free-effect-bullet-impact-explosion-32x32
 
 Background Music - https://soundcloud.com/rexlambo/rexlambo-under-the-stars
+Shooting Sound - https://pixabay.com/sound-effects/laser-6042/
+Explosion Sound - https://pixabay.com/sound-effects/explosion-91872/
 
 Font - https://datagoblin.itch.io/monogram
