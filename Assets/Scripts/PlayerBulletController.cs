@@ -6,10 +6,9 @@ public class PlayerBulletController : MonoBehaviour
     [SerializeField] private GameObject bulletExplosion;
     [SerializeField] private float speed = 5f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void SetTarget(Vector2 newTarget)
     {
-        target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        target = newTarget;
     }
 
     // Update is called once per frame

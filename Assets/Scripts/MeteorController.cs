@@ -64,7 +64,7 @@ public class MeteorController : MonoBehaviour
             DestroyMeteor();
 
             RobotController robotController = collider.GetComponent<RobotController>();
-            if (collider.GetComponent<RobotController>() != null)
+            if (robotController != null)
             {
                 robotController.TakeDamage();
                 return;

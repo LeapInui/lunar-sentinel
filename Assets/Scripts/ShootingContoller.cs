@@ -37,6 +37,8 @@ public class ShootingContoller : MonoBehaviour
         selectedGun.RotateGun(targetPos);
         selectedGun.PlaySound();
         selectedRobot.Flip(targetPos);
-        Instantiate(bulletPrefab, gunPos, Quaternion.Euler(0, 0, angle));
+
+        GameObject bullet = Instantiate(bulletPrefab, gunPos, Quaternion.Euler(0, 0, angle));
+        bullet.GetComponent<PlayerBulletController>().SetTarget(targetPos);
     }
 }
