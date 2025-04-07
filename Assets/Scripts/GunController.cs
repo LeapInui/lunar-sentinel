@@ -17,6 +17,6 @@ public class GunController : MonoBehaviour
 
     public void PlaySound()
     {
-        shootSound.Play();
+        SoundEffectsManager.instance.PlaySfx(shootSound);
     }
 }

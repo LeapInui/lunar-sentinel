@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3536531728077005411}
   - component: {fileID: 8386877173601433158}
   - component: {fileID: 7139714725887573475}
-  - component: {fileID: -5683373893675785333}
+  - component: {fileID: -259152431149806200}
   m_Layer: 0
   m_Name: MeteorExplosion_0
   m_TagString: Untagged
@@ -125,7 +125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 0.5
---- !u!82 &-5683373893675785333
+  explosionSound: {fileID: -259152431149806200}
+--- !u!82 &-259152431149806200
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,9 +138,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 33c06700ed2406e46b8439d4a6065a9e, type: 3}
   m_Resource: {fileID: 8300000, guid: 33c06700ed2406e46b8439d4a6065a9e, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.2
-  m_Pitch: 1.25
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0

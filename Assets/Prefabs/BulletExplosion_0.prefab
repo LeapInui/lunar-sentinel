@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5542966037379417605}
   - component: {fileID: 5169299127702123079}
   - component: {fileID: 8860461005795115380}
-  - component: {fileID: -245908343451816498}
+  - component: {fileID: 5914392202616211303}
   m_Layer: 0
   m_Name: BulletExplosion_0
   m_TagString: Explosions
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 0.5
+  explosionSound: {fileID: 5914392202616211303}
 --- !u!58 &8860461005795115380
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -162,7 +163,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.16
---- !u!82 &-245908343451816498
+--- !u!82 &5914392202616211303
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,8 +175,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 33c06700ed2406e46b8439d4a6065a9e, type: 3}
   m_Resource: {fileID: 8300000, guid: 33c06700ed2406e46b8439d4a6065a9e, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_PlayOnAwake: 0
+  m_Volume: 1
   m_Pitch: 1.75
   Loop: 0
   Mute: 0

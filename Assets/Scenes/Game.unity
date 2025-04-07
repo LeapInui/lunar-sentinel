@@ -1166,6 +1166,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4efb78df56d72ba4598de9841a0ac9f6, type: 3}
+--- !u!1 &481038383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 481038385}
+  - component: {fileID: 481038384}
+  m_Layer: 0
+  m_Name: SoundEffectsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &481038384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481038383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab94934d9dbab24b881d0f3640a61dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &481038385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481038383}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1062.2556, y: 457.33203, z: 0.19091251}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3899,6 +3943,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 326347822}
     m_Modifications:
+    - target: {fileID: -543243547099218563, guid: 282c7f40b8d55ef4f9e06e1f357a2f57, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -543243547099218563, guid: 282c7f40b8d55ef4f9e06e1f357a2f57, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 854869939800002423, guid: 282c7f40b8d55ef4f9e06e1f357a2f57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.05083322
@@ -6385,6 +6437,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 586770400}
     m_Modifications:
+    - target: {fileID: -543243547099218563, guid: 282c7f40b8d55ef4f9e06e1f357a2f57, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -543243547099218563, guid: 282c7f40b8d55ef4f9e06e1f357a2f57, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 854869939800002423, guid: 282c7f40b8d55ef4f9e06e1f357a2f57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.05083322
@@ -6513,6 +6573,7 @@ SceneRoots:
   - {fileID: 537010266079794122}
   - {fileID: 716037093}
   - {fileID: 641257888}
-  - {fileID: 985439947}
   - {fileID: 1001857226}
+  - {fileID: 985439947}
+  - {fileID: 481038385}
   - {fileID: 1791926004}
