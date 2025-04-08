@@ -1698,17 +1698,6 @@ MonoBehaviour:
   roundEndPanel: {fileID: 1416835195}
   gameOverPanel: {fileID: 1518551937}
   highscorePanel: {fileID: 1668042367}
-  score: 0
-  level: 1
-  meteorSpeed: 2
-  meteorSpeedMultiplier: 0.1
-  robotCounter: 0
-  ammoCount: 30
-  ammoRemainingBonus: 5
-  bulidingsRemainingBonus: 100
-  scoreText: {fileID: 1232432060}
-  levelText: {fileID: 1896253354}
-  ammoCountText: {fileID: 966745319}
   ammoRemainingBonusText: {fileID: 297272478}
   buildingsRemainingText: {fileID: 865922625}
   totalScoreText: {fileID: 1702054674}
@@ -1717,6 +1706,17 @@ MonoBehaviour:
   highscoreText: {fileID: 2069529653}
   endScoreText2: {fileID: 819441156}
   usernameInput: {fileID: 433187426}
+  scoreText: {fileID: 1232432060}
+  levelText: {fileID: 1896253354}
+  ammoCountText: {fileID: 966745319}
+  ammoRemainingBonus: 5
+  bulidingsRemainingBonus: 100
+  score: 0
+  level: 1
+  meteorSpeed: 2
+  meteorSpeedMultiplier: 0.1
+  robotCounter: 0
+  ammoCount: 30
   gameOver: 0
 --- !u!4 &716037093
 Transform:

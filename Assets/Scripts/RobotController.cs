@@ -28,21 +28,17 @@ public class RobotController : MonoBehaviour
         if (currentLives <= 0)
         {
             gameController.robotCounter--;
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
         isUpdating = false;
     }
 
-    public void ResetLives()
+    public void EnableRobot()
     {
-        if (isUpdating) return;
-        isUpdating = true;
-
+        gameObject.SetActive(true);
         currentLives = maxLives;
         livesUi.UpdateLives(currentLives);
-
-        isUpdating = false;
     }
 
     public void Flip(Vector2 targetPosition)

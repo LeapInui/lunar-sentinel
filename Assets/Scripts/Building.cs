@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void DisableBuilding()
     {
-        
+        gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void EnableBuilding()
     {
-        
+        gameObject.SetActive(true);
+    }
+
+    public bool IsActive()
+    {
+        return gameObject.activeSelf;
     }
 }

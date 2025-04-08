@@ -4,12 +4,19 @@ public class PauseManager : MonoBehaviour
 {
     [SerializeField] private GameObject pausePanel;
 
+    private GameController gameController;
     private bool isPaused = false;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        gameController = FindFirstObjectByType<GameController>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameController.gameOver)
         {
             ToggleMenu();
         }

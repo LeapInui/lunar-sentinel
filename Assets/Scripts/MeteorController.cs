@@ -70,7 +70,11 @@ public class MeteorController : MonoBehaviour
                 return;
             }
             
-            Destroy(collider.gameObject);
+            Building building = collider.GetComponent<Building>();
+            if (building != null)
+            {
+                building.DisableBuilding();
+            }
         } 
         // The bullet explosions fired by the player
         else if (collider.tag == "Explosions")

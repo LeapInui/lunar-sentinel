@@ -5,9 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    // Initialise panels
     [SerializeField] private GameObject roundEndPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject highscorePanel;
+
+    // Round end panel contents
+    [SerializeField] private TextMeshProUGUI ammoRemainingBonusText;
+    [SerializeField] private TextMeshProUGUI buildingsRemainingText;
+    [SerializeField] private TextMeshProUGUI totalScoreText;
+    [SerializeField] private TextMeshProUGUI countdownText;
+
+    // Game over panel contents
+    [SerializeField] private TextMeshProUGUI endScoreText;
+
+    // New highscore panel contents
+    [SerializeField] private TextMeshProUGUI highscoreText;
+    [SerializeField] private TextMeshProUGUI endScoreText2;
+    [SerializeField] private TMP_InputField usernameInput;
+
+    // Game UI
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private TextMeshProUGUI ammoCountText;
+
+    // Score Values
+    private int meteorDestroyPoints = 50;
+    [SerializeField] private int ammoRemainingBonus = 5;
+    [SerializeField] private int bulidingsRemainingBonus = 100;
 
     MeteorSpawner meteorSpawner;
 
@@ -17,34 +42,11 @@ public class GameController : MonoBehaviour
     public float meteorSpeed = 2f;
     [SerializeField] private float meteorSpeedMultiplier = 0.1f;
 
+    private int buildingCounter;
     public int robotCounter;
     public int ammoCount = 30;
     private int totalMeteorCount = 10;
     private int meteorsLeftCount = 0;
-
-    // Score Values
-    private int meteorDestroyPoints = 50;
-    [SerializeField] private int ammoRemainingBonus = 5;
-    [SerializeField] private int bulidingsRemainingBonus = 100;
-
-    // Game UI
-    [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private TextMeshProUGUI levelText;
-    [SerializeField] private TextMeshProUGUI ammoCountText;
-
-    // Round end panel
-    [SerializeField] private TextMeshProUGUI ammoRemainingBonusText;
-    [SerializeField] private TextMeshProUGUI buildingsRemainingText;
-    [SerializeField] private TextMeshProUGUI totalScoreText;
-    [SerializeField] private TextMeshProUGUI countdownText;
-
-    // Game over panel
-    [SerializeField] private TextMeshProUGUI endScoreText;
-
-    // New highscore panel
-    [SerializeField] private TextMeshProUGUI highscoreText;
-    [SerializeField] private TextMeshProUGUI endScoreText2;
-    [SerializeField] private TMP_InputField usernameInput;
 
     private bool isRoundOver = false;
     public bool gameOver = false;
