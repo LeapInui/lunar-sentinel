@@ -3,8 +3,8 @@ guid: a0e666293b9f7534ca026a2472a0c778
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8956576736680696112
-    second: BuildingPower 1_0
+      213: -5848422843667168271
+    second: BuildingPower_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BuildingPower 1_0
+      name: BuildingPower_0
       rect:
         serializedVersion: 2
         x: 4
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 039516986172c4c70800000000000000
-      internalID: 8956576736680696112
+      spriteID: 1f340f2f86a36dea0800000000000000
+      internalID: -5848422843667168271
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BuildingPower 1_0: 8956576736680696112
+      BuildingPower_0: -5848422843667168271
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

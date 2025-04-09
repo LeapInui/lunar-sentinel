@@ -22,8 +22,8 @@ public class ShootingContoller : MonoBehaviour
         GunController selectedGun = guns[index];
         RobotController selectedRobot = robots[index];
 
-        // If the selected robot is null, switch to the other gun and robot
-        if (selectedRobot == null)
+        // If the selected robot is not enabled(dead), switch to the other gun and robot
+        if (!selectedRobot.IsActive())
         {
             index = 1 - index; // Flip index
             selectedGun = guns[index];

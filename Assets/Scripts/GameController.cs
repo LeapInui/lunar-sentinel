@@ -42,7 +42,6 @@ public class GameController : MonoBehaviour
     public float meteorSpeed = 2f;
     [SerializeField] private float meteorSpeedMultiplier = 0.1f;
 
-    private int buildingCounter;
     public int robotCounter;
     public int ammoCount = 30;
     private int totalMeteorCount = 10;

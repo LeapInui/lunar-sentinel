@@ -41,6 +41,11 @@ public class RobotController : MonoBehaviour
         livesUi.UpdateLives(currentLives);
     }
 
+    public bool IsActive()
+    {
+        return gameObject.activeSelf;
+    }
+
     public void Flip(Vector2 targetPosition)
     {
         if (isUpdating) return;

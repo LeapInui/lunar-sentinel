@@ -77,7 +77,7 @@ public class MeteorController : MonoBehaviour
             }
         } 
         // The bullet explosions fired by the player
-        else if (collider.tag == "Explosions")
+        else if (collider.tag == "PlayerExplosion")
         {
             isDestroyed = true;
             gameController.UpdateScorePoints();
