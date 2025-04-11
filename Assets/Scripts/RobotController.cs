@@ -5,10 +5,11 @@ public class RobotController : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private GameController gameController;
     [SerializeField] private RobotLivesController livesUi;
+    [SerializeField] private GameObject shieldPrefab;
 
     private int maxLives = 2;
     private int currentLives;
-    private bool isUpdating = false; // Flag to check update status
+    public bool hasShield = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,10 +18,23 @@ public class RobotController : MonoBehaviour
         livesUi.UpdateLives(currentLives);
     }
 
+    public void ActivateShield()
+    {
+        if (!hasShield)
+        {
+            hasShield = true;
+            shieldPrefab.SetActive(true);
+        }
+    }
+
     public void TakeDamage()
     {
-        if (isUpdating) return;
-        isUpdating = true;
+        if (hasShield)
+        {
+            hasShield = false;
+            shieldPrefab.SetActive(false);
+            return;
+        }
 
         currentLives--;
         livesUi.UpdateLives(currentLives);
@@ -30,8 +44,6 @@ public class RobotController : MonoBehaviour
             gameController.robotCounter--;
             gameObject.SetActive(false);
         }
-
-        isUpdating = false;
     }
 
     public void EnableRobot()
@@ -48,7 +60,6 @@ public class RobotController : MonoBehaviour
 
     public void Flip(Vector2 targetPosition)
     {
-        if (isUpdating) return;
         spriteRenderer.flipX = targetPosition.x < transform.position.x;
     }
 }

@@ -52,6 +52,12 @@ public class Powerup : MonoBehaviour
             case PowerupType.Robot:
                 RestoreRobot();
                 break;
+            case PowerupType.Bullet:
+                FindFirstObjectByType<ShootingContoller>().ActivatePowerup();
+                break;
+            case PowerupType.Shield:
+                ApplyShield();
+                break;
         }
     }
 
@@ -84,5 +90,31 @@ public class Powerup : MonoBehaviour
                 break;
             }
         }
+    }
+
+    // Implementation of shield powerup
+    private void ApplyShield()
+    {
+        RobotController[] robots = FindObjectsByType<RobotController>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+
+        // Both robots have a shield - do nothing
+        if (robots[0].hasShield && robots[1].hasShield)
+            return;
+        
+        // Only one robot has a shield
+        if (robots[0].hasShield)
+        {
+            robots[1].ActivateShield();
+            return;
+        }
+        if (robots[1].hasShield)
+        {
+            robots[0].ActivateShield();
+            return;
+        }
+
+        // Gives random robot a shield
+        int randomIndex = Random.Range(0, 2);
+        robots[randomIndex].ActivateShield();
     }
 }
