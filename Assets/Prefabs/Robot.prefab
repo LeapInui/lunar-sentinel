@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6549609704625863106}
   - component: {fileID: 38180802217275339}
   - component: {fileID: 3205236442394815238}
+  - component: {fileID: 2704747098517646930}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Untagged
@@ -157,3 +158,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.60625, y: 0.70310295}
   m_EdgeRadius: 0
+--- !u!114 &2704747098517646930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8752977779472268907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 833fb4c7008b8fe4381aa282b44acdd0, type: 2}

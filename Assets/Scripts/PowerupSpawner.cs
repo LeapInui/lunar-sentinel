@@ -11,7 +11,7 @@ public class PowerupSpawner : MonoBehaviour
     }
 
     [SerializeField] private PowerupPrefab[] powerupPrefabs;
-    [SerializeField] private float spawnInterval = 2f;
+    [SerializeField] private float spawnInterval = 1.2f;
     [SerializeField] private float spawnChance = 0.2f;
     [SerializeField] private float paddingY = 1f;
 
@@ -42,6 +42,13 @@ public class PowerupSpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(spawnInterval);
+
+            // Skip spawning powerups if round is over or game is over
+            GameController gameController = FindFirstObjectByType<GameController>();
+            if (gameController.gameOver || gameController.isRoundOver)
+            {
+                continue;
+            }
 
             int currentBuildingCount = FindObjectsByType<Building>(FindObjectsInactive.Exclude, FindObjectsSortMode.None).Length;
             int currentRobotCount = FindObjectsByType<RobotController>(FindObjectsInactive.Exclude, FindObjectsSortMode.None).Length;
@@ -75,7 +82,7 @@ public class PowerupSpawner : MonoBehaviour
                     float randomX = Random.Range(minX, maxX);
                     int randomIndex = Random.Range(0, availablePowerups.Count);
 
-                    Instantiate(availablePowerups[randomIndex], new Vector3(randomX, valueY + paddingY, 0), Quaternion.identity);
+                    Instantiate(availablePowerups[randomIndex], new Vector3(randomX, valueY + paddingY, -0.5f), Quaternion.identity);
                 }
             }
         }

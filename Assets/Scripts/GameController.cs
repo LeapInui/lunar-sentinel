@@ -40,14 +40,15 @@ public class GameController : MonoBehaviour
     public int level = 1;
 
     public float meteorSpeed = 2f;
-    [SerializeField] private float meteorSpeedMultiplier = 0.1f;
+    [SerializeField] private float meteorSpeedMultiplier = 0.05f;
 
     public int robotCounter;
-    public int ammoCount = 30;
+    private int initialAmmoCount = 20;
+    public int ammoCount;
     private int totalMeteorCount = 10;
     private int meteorsLeftCount = 0;
 
-    private bool isRoundOver = false;
+    public bool isRoundOver = false;
     public bool gameOver = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -55,6 +56,7 @@ public class GameController : MonoBehaviour
     {
         meteorSpawner = FindFirstObjectByType<MeteorSpawner>();
         robotCounter = FindObjectsByType<RobotController>(FindObjectsSortMode.None).Length;
+        ammoCount = initialAmmoCount;
 
         UpdateScoreText();
         UpdateLevelText();
@@ -160,8 +162,9 @@ public class GameController : MonoBehaviour
         roundEndPanel.SetActive(false);
         isRoundOver = false;
 
-        ammoCount = 30;
+        ammoCount = initialAmmoCount + (3 * level);
         meteorSpeed *= 1f + meteorSpeedMultiplier;
+        totalMeteorCount += 2;
         level++;
 
         StartRound();
@@ -178,9 +181,6 @@ public class GameController : MonoBehaviour
 
         int totalBonus = ammoRemainingScore + bulidingsRemainingScore;
 
-        score += totalBonus;
-        UpdateScoreText();
-
         yield return new WaitForSeconds(0.5f);
 
         if (LeaderboardManager.isHighscore(score))
@@ -189,12 +189,16 @@ public class GameController : MonoBehaviour
             StartCoroutine(FlashHighscore());
             
             endScoreText2.text = "Total Score: " + score + " + " + totalBonus;
+            score += totalBonus;
+            UpdateScoreText();
         }
         else
         {
             gameOverPanel.SetActive(true);
 
-            endScoreText.text = "Total Score: " + score + " + " + totalBonus;
+            score += totalBonus;
+            UpdateScoreText();
+            endScoreText.text = "Total Score: " + score;
         }
     }
 

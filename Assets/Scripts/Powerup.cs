@@ -95,26 +95,20 @@ public class Powerup : MonoBehaviour
     // Implementation of shield powerup
     private void ApplyShield()
     {
-        RobotController[] robots = FindObjectsByType<RobotController>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
-
-        // Both robots have a shield - do nothing
-        if (robots[0].hasShield && robots[1].hasShield)
-            return;
+        RobotController[] activeRobots = FindObjectsByType<RobotController>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
         
-        // Only one robot has a shield
-        if (robots[0].hasShield)
+        var eligibleRobots = new System.Collections.Generic.List<RobotController>();
+        foreach (var robot in activeRobots)
         {
-            robots[1].ActivateShield();
-            return;
-        }
-        if (robots[1].hasShield)
-        {
-            robots[0].ActivateShield();
-            return;
+            if (!robot.hasShield)
+                eligibleRobots.Add(robot);
         }
 
-        // Gives random robot a shield
-        int randomIndex = Random.Range(0, 2);
-        robots[randomIndex].ActivateShield();
+        // Robots without shields
+        if (eligibleRobots.Count > 0)
+        {
+            int randomIndex = Random.Range(0, eligibleRobots.Count);
+            eligibleRobots[randomIndex].ActivateShield();
+        }
     }
 }

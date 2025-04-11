@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8386877173601433158}
   - component: {fileID: 7139714725887573475}
   - component: {fileID: -259152431149806200}
+  - component: {fileID: 7001159352404319811}
   m_Layer: 0
   m_Name: MeteorExplosion_0
   m_TagString: Untagged
@@ -223,3 +224,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7001159352404319811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7167146714011602999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 833fb4c7008b8fe4381aa282b44acdd0, type: 2}

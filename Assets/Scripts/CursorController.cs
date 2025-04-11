@@ -9,11 +9,13 @@ public class CursorController : MonoBehaviour
     [SerializeField] private ShootingContoller shootingContoller;
 
     private GameController gameController;
+    private PauseManager pauseManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         gameController = FindFirstObjectByType<GameController>();
+        pauseManager = FindFirstObjectByType<PauseManager>();
 
         hotspot = new Vector2(cursorTexture.width / 2f, cursorTexture.height / 2f);
         Cursor.SetCursor(cursorTexture, hotspot, CursorMode.Auto);
@@ -22,7 +24,7 @@ public class CursorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame && gameController.ammoCount > 0 && !gameController.gameOver)
+        if (Mouse.current.leftButton.wasPressedThisFrame && !pauseManager.isPaused && gameController.ammoCount > 0 && !gameController.gameOver)
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             shootingContoller.Fire(mousePos);

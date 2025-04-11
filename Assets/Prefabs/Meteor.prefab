@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -2878087364894647378}
   - component: {fileID: 6314408287385106025}
   - component: {fileID: 5684014010521498363}
+  - component: {fileID: 1900652150554361359}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Untagged
@@ -191,3 +192,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1900652150554361359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202602725894802001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 833fb4c7008b8fe4381aa282b44acdd0, type: 2}
