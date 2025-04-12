@@ -17,7 +17,7 @@ public class CursorController : MonoBehaviour
         gameController = FindFirstObjectByType<GameController>();
         pauseManager = FindFirstObjectByType<PauseManager>();
 
-        hotspot = new Vector2(cursorTexture.width / 2f, cursorTexture.height / 2f);
+        hotspot = new Vector2(cursorTexture.width / 2f, cursorTexture.height / 2f); // Set cursor hotspot to middle of texture
         Cursor.SetCursor(cursorTexture, hotspot, CursorMode.Auto);
     }
 
@@ -27,6 +27,7 @@ public class CursorController : MonoBehaviour
         if (Mouse.current.leftButton.wasPressedThisFrame && !pauseManager.isPaused && gameController.ammoCount > 0 && !gameController.gameOver)
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
             shootingContoller.Fire(mousePos);
             gameController.ammoCount--;
             gameController.UpdateAmmoCountText();

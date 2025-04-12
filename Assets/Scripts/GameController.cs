@@ -36,9 +36,9 @@ public class GameController : MonoBehaviour
 
     MeteorSpawner meteorSpawner;
 
+    // Game state variables
     public int score = 0;
     public int level = 1;
-
     public float meteorSpeed = 2f;
     [SerializeField] private float meteorSpeedMultiplier = 0.05f;
 
@@ -80,7 +80,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    // Doesn't update every frame
+    // Update functions for UI, separate so it doesn't update every frame - saves performance
     public void UpdateScoreText()
     {
         scoreText.text = "Score: " + score;
@@ -107,6 +107,7 @@ public class GameController : MonoBehaviour
         meteorsLeftCount--;
     }
 
+    // Handles round start
     private void StartRound()
     {
         meteorSpawner.meteorCount = totalMeteorCount;
@@ -114,6 +115,7 @@ public class GameController : MonoBehaviour
         meteorSpawner.StartCoroutine(meteorSpawner.SpawnMeteor());
     }
 
+    // Countdown effect for round over panel
     private IEnumerator Countdown()
     {
         countdownText.text = "5";
@@ -128,6 +130,7 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(1f);
     }
 
+    // Flash effect for highscore panel
     private IEnumerator FlashHighscore()
     {
         while (true)
@@ -139,15 +142,18 @@ public class GameController : MonoBehaviour
         }
     }
 
+    // Handles round end
     public IEnumerator EndRound()
     {
         int ammoRemainingScore = ammoCount * ammoRemainingBonus;
 
+        // Count remaining buildings to calculate bonus
         Building[] buildings = FindObjectsByType<Building>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
         int bulidingsRemainingScore = buildings.Length * bulidingsRemainingBonus;
 
         int totalBonus = ammoRemainingScore + bulidingsRemainingScore;
 
+        // Updates UI
         ammoRemainingBonusText.text = "Ammunition Remaining Bonus: " + ammoRemainingScore;
         buildingsRemainingText.text = "Buildings Remaining Bonus: " + bulidingsRemainingScore;
         totalScoreText.text = "Total Score: " + score + " + " + totalBonus;
@@ -162,6 +168,7 @@ public class GameController : MonoBehaviour
         roundEndPanel.SetActive(false);
         isRoundOver = false;
 
+        // Increasing difficulty of each level
         ammoCount = initialAmmoCount + (3 * level);
         meteorSpeed *= 1f + meteorSpeedMultiplier;
         totalMeteorCount += 2;
@@ -172,6 +179,7 @@ public class GameController : MonoBehaviour
         UpdateAmmoCountText();
     }
 
+    // Handles game over
     public IEnumerator GameOver()
     {
         int ammoRemainingScore = ammoCount * ammoRemainingBonus;
@@ -183,25 +191,29 @@ public class GameController : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
+        int scoreBeforeBonus = score;
+        score += totalBonus;
+
+        // Check if the score is a highscore - to allow users to submit a username
+        // If not show game over panel
         if (LeaderboardManager.isHighscore(score))
         {
             highscorePanel.SetActive(true);
             StartCoroutine(FlashHighscore());
             
-            endScoreText2.text = "Total Score: " + score + " + " + totalBonus;
-            score += totalBonus;
+            endScoreText2.text = "Total Score: " + scoreBeforeBonus + " + " + totalBonus;
             UpdateScoreText();
         }
         else
         {
             gameOverPanel.SetActive(true);
 
-            score += totalBonus;
             UpdateScoreText();
             endScoreText.text = "Total Score: " + score;
         }
     }
 
+    // Submits score to leaderboard
     public void SubmitButton()
     {
         LeaderboardManager.SaveScore(usernameInput.text, score);

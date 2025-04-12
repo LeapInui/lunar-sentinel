@@ -30,8 +30,14 @@ public class Leaderboard
 
 public class LeaderboardManager : MonoBehaviour
 {
+    // UI elements
+    [SerializeField] private GameObject confirmPanel;
     [SerializeField] private TextMeshProUGUI[] leaderboardTextFields;
+
     private const string LeaderboardKey = "Leaderboard";
+    
+    [SerializeField] private AudioSource highscoreSound;
+    [SerializeField] private AudioSource clickSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,6 +48,7 @@ public class LeaderboardManager : MonoBehaviour
         StartCoroutine(FlashNewHighscore());
     }
 
+    // Deletes temporary keys so new highscore effect doesn't persist
     void OnDestroy()
     {
         // Clear the "new entry" data when the scene is unloaded
@@ -54,6 +61,7 @@ public class LeaderboardManager : MonoBehaviour
     {
         List<LeaderboardEntry> leaderboard = LoadLeaderboard();
         
+        // Loop through text fields and populates the leaderboard
         for (int i = 0; i < leaderboardTextFields.Length; i++)
         {
             if (i < leaderboard.Count)
@@ -64,6 +72,7 @@ public class LeaderboardManager : MonoBehaviour
             }
             else
             {
+                // Clear remaining fields if fewer than 5 entries
                 leaderboardTextFields[i].text = "";
                 TextMeshProUGUI scoreText = leaderboardTextFields[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>();
                 scoreText.text = "";
@@ -71,6 +80,8 @@ public class LeaderboardManager : MonoBehaviour
         }
     }
 
+
+    // New highscore effect
     private IEnumerator FlashNewHighscore()
     {
         if (!PlayerPrefs.HasKey("NewEntryName") || !PlayerPrefs.HasKey("NewEntryScore")) yield break;
@@ -79,6 +90,8 @@ public class LeaderboardManager : MonoBehaviour
         int newScore = PlayerPrefs.GetInt("NewEntryScore");
 
         List<LeaderboardEntry> leaderboard = LoadLeaderboard();
+
+        SoundEffectsManager.instance.PlaySfxGlobal(highscoreSound);
 
         for (int i = 0; i < leaderboard.Count; i++)
         {
@@ -120,7 +133,6 @@ public class LeaderboardManager : MonoBehaviour
                 return true;
             }
         }
-
         return false;
     }
 
@@ -145,5 +157,33 @@ public class LeaderboardManager : MonoBehaviour
         string json = JsonUtility.ToJson(new Leaderboard(leaderboard));
         PlayerPrefs.SetString(LeaderboardKey, json);
         PlayerPrefs.Save();
+    }
+
+    // Displays confirm panel to clear scores
+    public void ConfirmPanel()
+    {
+        SoundEffectsManager.instance.PlaySfx(clickSound);
+        confirmPanel.SetActive(true);
+    }
+
+    public void ConfirmBack()
+    {
+        SoundEffectsManager.instance.PlaySfx(clickSound);
+        confirmPanel.SetActive(false);
+    }
+
+    public void ConfirmClear()
+    {
+        SoundEffectsManager.instance.PlaySfx(clickSound);
+        ClearLeaderboard();
+        confirmPanel.SetActive(false);
+    }
+
+    // Clears leaderboard from PlayerPrefs
+    private void ClearLeaderboard()
+    {
+        PlayerPrefs.DeleteKey(LeaderboardKey);
+        PlayerPrefs.Save();
+        DisplayLeaderboard();
     }
 }

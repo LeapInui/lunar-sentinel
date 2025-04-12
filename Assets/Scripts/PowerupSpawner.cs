@@ -55,23 +55,25 @@ public class PowerupSpawner : MonoBehaviour
 
             if (Random.value <= spawnChance)
             {
+                // List to store available powerups
                 var availablePowerups = new System.Collections.Generic.List<GameObject>();
 
                 foreach (var powerup in powerupPrefabs)
                 {
                     bool isAvailable = true;
                     
+                    // Don't spawn building powerup if all buildlings are active
                     if (powerup.type == PowerupType.Building && currentBuildingCount >= totalBuildingCount) 
                     {
                         isAvailable = false;
                     }
-                    
+                    // Don't spawn robot powerup if all robots are active
                     if (powerup.type == PowerupType.Robot && currentRobotCount >= totalRobotCount)
                     {
                         isAvailable = false;
                     }
-
-                    if(isAvailable)
+                    // Add other powerups
+                    if (isAvailable)
                     {
                         availablePowerups.Add(powerup.prefab);
                     }

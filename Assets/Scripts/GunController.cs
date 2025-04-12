@@ -6,6 +6,7 @@ public class GunController : MonoBehaviour
 
     [SerializeField] private AudioSource shootSound;
 
+    // Rotates the gun to face target position
     public void RotateGun(Vector2 targetPosition)
     {
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;

@@ -20,12 +20,6 @@ public class MeteorSpawner : MonoBehaviour
         valueY = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public IEnumerator SpawnMeteor()
     {
         while (meteorCount > 0)

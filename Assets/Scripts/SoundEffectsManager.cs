@@ -25,10 +25,30 @@ public class SoundEffectsManager : MonoBehaviour
         sfxVolume = PlayerPrefs.GetFloat("SfxVolume", 1f);
     }
 
-    public void PlaySfx(AudioSource sound)
+    // Play sound effect local to scene
+    public void PlaySfx(AudioSource source)
     {
-        sound.volume = sfxVolume;
-        sound.Play();
+        source.volume = sfxVolume;
+        source.Play();
+    }
+
+    // Play sound effect globally 
+    public void PlaySfxGlobal(AudioSource source)
+    {
+        GameObject tempAudio = new GameObject("TempSFX");
+        AudioSource tempSource = tempAudio.AddComponent<AudioSource>();
+
+        tempSource.clip = source.clip;
+        tempSource.volume = sfxVolume;
+        tempSource.pitch = source.pitch;
+        tempSource.spatialBlend = source.spatialBlend;
+        tempSource.loop = false;
+
+        DontDestroyOnLoad(tempAudio);
+
+        tempSource.Play();
+
+        Destroy(tempAudio, tempSource.clip.length);
     }
 
     // Sets the sound effects volume and saves it in playerprefs
