@@ -1,10 +1,13 @@
 Robot - https://opengameart.org/content/pixel-robot
+Health - https://toffeecraft.itch.io/ui-user-interface-pack-black-and-white
 Background generated via - https://deep-fold.itch.io/space-background-generator
 PlayerBullets - https://bdragon1727.itch.io/free-effect-and-bullet-16x16
 Explosions + Meteors - https://bdragon1727.itch.io/free-effect-bullet-impact-explosion-32x32
 
 Background Music - https://soundcloud.com/rexlambo/rexlambo-under-the-stars
+Menu Click Sound - https://pixabay.com/sound-effects/click-buttons-ui-menu-sounds-effects-button-7-203601/ 
 Shooting Sound - https://pixabay.com/sound-effects/laser-6042/
 Explosion Sound - https://pixabay.com/sound-effects/explosion-91872/
+Highscore Sound - https://pixabay.com/sound-effects/level-up-289723/
 
 Font - https://datagoblin.itch.io/monogram
