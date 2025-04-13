@@ -12,7 +12,7 @@ public class Powerup : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gameController = FindFirstObjectByType<GameController>();    
+        gameController = ServiceLocator.Get<GameController>();    
     }
 
     // Update is called once per frame
@@ -53,7 +53,7 @@ public class Powerup : MonoBehaviour
                 RestoreRobot();
                 break;
             case PowerupType.Bullet:
-                FindFirstObjectByType<ShootingContoller>().ActivatePowerup();
+                ServiceLocator.Get<ShootingContoller>().ActivatePowerup();
                 break;
             case PowerupType.Shield:
                 ApplyShield();

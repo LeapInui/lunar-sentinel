@@ -15,7 +15,7 @@ public class MeteorController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gameController = FindFirstObjectByType<GameController>();
+        gameController = ServiceLocator.Get<GameController>();
         structures = GameObject.FindGameObjectsWithTag("Structures");
 
         // Prevents index errors

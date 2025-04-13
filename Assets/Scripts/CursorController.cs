@@ -14,8 +14,8 @@ public class CursorController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gameController = FindFirstObjectByType<GameController>();
-        pauseManager = FindFirstObjectByType<PauseManager>();
+        gameController = ServiceLocator.Get<GameController>();
+        pauseManager = ServiceLocator.Get<PauseManager>();
 
         hotspot = new Vector2(cursorTexture.width / 2f, cursorTexture.height / 2f); // Set cursor hotspot to middle of texture
         Cursor.SetCursor(cursorTexture, hotspot, CursorMode.Auto);

@@ -51,10 +51,15 @@ public class GameController : MonoBehaviour
     public bool isRoundOver = false;
     public bool gameOver = false;
 
+    void Awake()
+    {
+        ServiceLocator.Register(this);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        meteorSpawner = FindFirstObjectByType<MeteorSpawner>();
+        meteorSpawner = ServiceLocator.Get<MeteorSpawner>();
         robotCounter = FindObjectsByType<RobotController>(FindObjectsSortMode.None).Length;
         ammoCount = initialAmmoCount;
 

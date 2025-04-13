@@ -15,6 +15,8 @@ public class MeteorSpawner : MonoBehaviour
 
     void Awake()
     {
+        ServiceLocator.Register(this);
+
         minX = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).x;
         maxX = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0)).x;
         valueY = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;

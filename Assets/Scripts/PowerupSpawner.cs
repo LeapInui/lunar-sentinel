@@ -44,7 +44,7 @@ public class PowerupSpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval);
 
             // Skip spawning powerups if round is over or game is over
-            GameController gameController = FindFirstObjectByType<GameController>();
+            GameController gameController = ServiceLocator.Get<GameController>();
             if (gameController.gameOver || gameController.isRoundOver)
             {
                 continue;

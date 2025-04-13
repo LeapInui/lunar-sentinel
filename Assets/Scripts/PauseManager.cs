@@ -9,10 +9,15 @@ public class PauseManager : MonoBehaviour
     public bool isPaused = false;
     private GameObject activePanel = null;
 
+    void Awake()
+    {
+        ServiceLocator.Register(this);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gameController = FindFirstObjectByType<GameController>();
+        gameController = ServiceLocator.Get<GameController>();
     }
 
     // Update is called once per frame

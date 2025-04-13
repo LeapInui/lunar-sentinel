@@ -10,6 +10,11 @@ public class ShootingContoller : MonoBehaviour
     private float powerupDuration = 5f;
     private float powerupTimer;
 
+    void Awake()
+    {
+        ServiceLocator.Register(this);
+    }
+
     // Update is called once per frame
     void Update()
     {
