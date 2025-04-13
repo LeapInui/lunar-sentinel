@@ -56,6 +56,11 @@ public class GameController : MonoBehaviour
         ServiceLocator.Register(this);
     }
 
+    void OnDestroy()
+    {
+        ServiceLocator.Unregister<GameController>();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

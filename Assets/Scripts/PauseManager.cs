@@ -14,6 +14,12 @@ public class PauseManager : MonoBehaviour
         ServiceLocator.Register(this);
     }
 
+    void OnDestroy()
+    {
+        ServiceLocator.Unregister<PauseManager>();
+        Time.timeScale = 1f;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,12 +47,6 @@ public class PauseManager : MonoBehaviour
                 powerCommand.Execute();
             }
         }
-    }
-
-    // Ensures time scale is reset when this object is destroyed
-    private void OnDestroy()
-    {
-        Time.timeScale = 1f;
     }
 
     // Show or hide respective panel

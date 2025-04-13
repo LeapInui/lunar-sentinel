@@ -22,6 +22,11 @@ public class MeteorSpawner : MonoBehaviour
         valueY = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;
     }
 
+    void OnDestroy()
+    {
+        ServiceLocator.Unregister<MeteorSpawner>();
+    }
+
     public IEnumerator SpawnMeteor()
     {
         while (meteorCount > 0)

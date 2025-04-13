@@ -13,6 +13,15 @@ public static class ServiceLocator
 
         services.Add(type, service);
     }
+
+    public static void Unregister<T>()
+    {
+        var type = typeof(T);
+        if (services.ContainsKey(type))
+        {
+            services.Remove(type);
+        }
+    }
     
     public static T Get<T>()
     {
