@@ -24,14 +24,16 @@ public class PauseManager : MonoBehaviour
         {
             if (activePanel == null || activePanel == pausePanel)
             {
-                ToggleMenu(pausePanel);
+                Command pauseCommand = new TogglePauseCommand(this);
+                pauseCommand.Execute();
             }
         }
         else if (Input.GetKeyDown(KeyCode.P))
         {
             if (activePanel == null || activePanel == powerPanel)
             {
-                ToggleMenu(powerPanel);
+                Command powerCommand = new TogglePowerCommand(this);
+                powerCommand.Execute();
             }
         }
     }
@@ -42,9 +44,19 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    // Show or hide the pause menu when esc is clicked
-    private void ToggleMenu(GameObject panel)
+    // Show or hide respective panel
+    public void TogglePanel(string panelType)
     {
+        GameObject panel;
+        if (panelType == "pause")
+        {
+            panel = pausePanel;
+        }
+        else
+        {
+            panel = powerPanel;
+        }
+
         // Close if clicking the currently open panel
         if (activePanel == panel)
         {

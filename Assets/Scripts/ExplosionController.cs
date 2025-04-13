@@ -12,10 +12,4 @@ public class ExplosionController : MonoBehaviour
         SoundEffectsManager.instance.PlaySfx(explosionSound);
         Destroy(gameObject, destroyTime);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

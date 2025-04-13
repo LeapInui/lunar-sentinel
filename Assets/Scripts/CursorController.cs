@@ -24,11 +24,11 @@ public class CursorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame && !pauseManager.isPaused && gameController.ammoCount > 0 && !gameController.gameOver)
+        if (Input.GetMouseButtonDown(0) && !pauseManager.isPaused && gameController.ammoCount > 0 && !gameController.gameOver)
         {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            shootingContoller.Fire(mousePos);
+            Command shootCommand = new ShootCommand(shootingContoller);
+            shootCommand.Execute();
+            
             gameController.ammoCount--;
             gameController.UpdateAmmoCountText();
         }
