@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class ShootingContoller : MonoBehaviour
@@ -5,6 +6,9 @@ public class ShootingContoller : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GunController[] guns;
     [SerializeField] private RobotController[] robots;
+
+    [SerializeField] private GameObject bulletPowerUi;
+    [SerializeField] private TextMeshProUGUI bulletPowerTimerText;
 
     private bool powerupActive = false;
     private float powerupDuration = 5f;
@@ -21,10 +25,12 @@ public class ShootingContoller : MonoBehaviour
         if (powerupActive)
         {
             powerupTimer -= Time.deltaTime;
+            bulletPowerTimerText.text = Mathf.CeilToInt(powerupTimer).ToString() + "s";
             
             if (powerupTimer <= 0)
             {
                 powerupActive = false;
+                bulletPowerUi.SetActive(false);
             }
         }
     }
@@ -102,5 +108,7 @@ public class ShootingContoller : MonoBehaviour
     {
         powerupActive = true;
         powerupTimer = powerupDuration;
+
+        bulletPowerUi.SetActive(true);
     }
 }

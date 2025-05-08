@@ -39,8 +39,8 @@ public class GameController : MonoBehaviour
     // Game state variables
     public int score = 0;
     public int level = 1;
-    public float meteorSpeed = 2f;
-    [SerializeField] private float meteorSpeedMultiplier = 0.05f;
+    public float meteorSpeed = 1.25f;
+    [SerializeField] private float meteorSpeedMultiplier = 0.15f;
 
     public int robotCounter;
     private int initialAmmoCount = 20;

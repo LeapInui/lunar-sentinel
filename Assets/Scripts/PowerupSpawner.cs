@@ -11,7 +11,7 @@ public class PowerupSpawner : MonoBehaviour
     }
 
     [SerializeField] private PowerupPrefab[] powerupPrefabs;
-    [SerializeField] private float spawnInterval = 1.2f;
+    [SerializeField] private float spawnInterval = 1f;
     [SerializeField] private float spawnChance = 0.2f;
     [SerializeField] private float paddingY = 1f;
 

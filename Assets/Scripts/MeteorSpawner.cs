@@ -9,7 +9,7 @@ public class MeteorSpawner : MonoBehaviour
     private float minX, maxX;
 
     public int meteorCount = 10;
-    public float spawnDelay = 0.75f;
+    public float spawnDelay = 1f;
 
     float valueY;
 

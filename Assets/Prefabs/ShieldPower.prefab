@@ -166,4 +166,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerupType: 3
-  fallSpeed: 2.5
+  fallSpeed: 1.75

@@ -3,7 +3,7 @@ using UnityEngine;
 public class Powerup : MonoBehaviour
 {
     [SerializeField] private PowerupType powerupType;
-    [SerializeField] private float fallSpeed = 2.5f;
+    [SerializeField] private float fallSpeed = 1.75f;
 
     private bool isDestroyed = false; // Prevents powerup activating multiple times
 
