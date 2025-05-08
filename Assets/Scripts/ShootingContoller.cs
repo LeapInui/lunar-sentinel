@@ -19,6 +19,11 @@ public class ShootingContoller : MonoBehaviour
         ServiceLocator.Register(this);
     }
 
+    void OnDestroy()
+    {
+        ServiceLocator.Unregister<ShootingContoller>();
+    }
+
     // Update is called once per frame
     void Update()
     {
