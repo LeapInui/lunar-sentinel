@@ -17,7 +17,7 @@ In the original Missile Command, the idea is to predict where missiles will be, 
 - P for powerups
 
 ## Download
-You can download it through the [releases tab](https://github.com/LeapInui/lunar-sentinel/)  
+You can download it through the [releases tab](https://github.com/LeapInui/lunar-sentinel/releases/tag/v1.0)  
 Just download it, unzip it, and run the exectuable - you may get a windows defender popup since the build isn't signed however the game is safe to run!  
 Should work out of the box (tested on Windows)
 
