@@ -25,3 +25,13 @@ Should work out of the box (tested on Windows)
 All assets used that weren't created by me are credited in: `Assets/assets_to_credit.txt`
 
 ## Preview
+### **Main Menu**
+![image](https://github.com/user-attachments/assets/58488c97-b032-4f5f-bd24-0cf70cf0ac88)
+### Powerups
+![image](https://github.com/user-attachments/assets/86986302-31e4-4aba-a26d-df0400c70799)
+### Gameplay
+![gameplay](https://github.com/user-attachments/assets/a6586938-1694-4201-8728-c8b04de696b5)
+### Leaderboards
+![image](https://github.com/user-attachments/assets/c17032d6-1218-426b-a06d-c33f1f49005b)
+### Options
+![image](https://github.com/user-attachments/assets/53c1f6b1-f46c-47d7-b2bd-0096722d39ea)
