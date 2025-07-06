@@ -1,5 +1,5 @@
 # Lunar Sentinel Unity Game
-A simple arcade-style game which is based on Atari's **Missile Command** with a pixel art style theme  
+An arcade-style game which is based on Atari's **Missile Command** with a pixel art style theme  
 In this game you control two robots and shoot down incoming meteors before they hit the structures or the robots themselves  
 
 **Do note that bullets are *supposed* to go through the meteors - this is an intended game design**  
